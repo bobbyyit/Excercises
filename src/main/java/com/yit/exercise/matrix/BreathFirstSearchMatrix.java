@@ -32,7 +32,7 @@ public class BreathFirstSearchMatrix {
              North, south, east, west
          */
         Integer[] directionalRow = {-1, 1, 0, 0};
-        Integer[] directionalVector = {0, 0, 1, -1};
+        Integer[] directionalColumn = {0, 0, 1, -1};
 
         /* State representation */
         Queue<Integer> rq = new LinkedList<>(); // row queue
@@ -42,7 +42,7 @@ public class BreathFirstSearchMatrix {
         cq.add(sc);
         visited[sc][sr] = true;
 
-        while (rq.size() > 0) {
+        while (!rq.isEmpty()) {
             int currentRow = rq.remove();
             int currentColumn = cq.remove();
             if (mat[currentRow][currentColumn] == 'e') {
@@ -52,7 +52,7 @@ public class BreathFirstSearchMatrix {
 
             for (int i = 0; i < 4; i++) {
                 int nextLayerRow = currentRow + directionalRow[i];
-                int nextLayerColumn = currentColumn + directionalVector[i];
+                int nextLayerColumn = currentColumn + directionalColumn[i];
 
                 /*
                   Check to see if coordinates is outside the matrix

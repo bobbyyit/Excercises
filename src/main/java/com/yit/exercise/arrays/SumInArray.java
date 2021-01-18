@@ -2,18 +2,17 @@ package com.yit.exercise.arrays;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 public class SumInArray {
 
     public static void main(String[] args) {
-        int[] array = {-2, 4, 5, 6, 75, 78, 83};
-        int sum = 81;
+        int[] array = {3, 2, 4};
+        int sum = 6;
 
         int pair =
 //                bruteForce(array, sum);
-//                 twoPointers(array, sum);
-                 difference(array, sum);
+                 sortedWithTwoPointers(array, sum);
+//                 difference(array, sum);
 
         System.out.printf("Has %d pair%n", pair);
     }
@@ -38,11 +37,12 @@ public class SumInArray {
 
     /**
      * O(n)
+     *
      * @param array
      * @param sum
      * @return
      */
-    private static int twoPointers(int[] array, int sum) {
+    private static int sortedWithTwoPointers(int[] array, int sum) {
         int pointerFromLeft = 0;
         int pointerFromRight = array.length - 1;
         int count = 0;
@@ -80,7 +80,7 @@ public class SumInArray {
         for (int firstPointer = 0; firstPointer < array.length - 1; firstPointer++) {
             int firstNumber = array[firstPointer];
 
-            for (int secondPointer = 1; secondPointer < array.length; secondPointer++) {
+            for (int secondPointer = firstPointer + 1; secondPointer < array.length - 1; secondPointer++) {
                 int secondNumber = array[secondPointer];
 
                 if (firstNumber + secondNumber == sum) {

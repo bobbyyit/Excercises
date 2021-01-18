@@ -1,23 +1,28 @@
 package com.yit.exercise.stack;
 
-public class Stack {
+public class MyStack {
     private int stackSize;
     private Integer[] stack;
     private int top = 0;
 
-    public Stack(int stackSize) {
+    public MyStack(int stackSize) {
         this.stackSize = stackSize;
         this.stack = new Integer[stackSize];
     }
 
     public void push(int number) {
+        /*
+        Stack is full, create new stack double the size and copy data over
+         */
         if(top == stack.length) {
-            Integer[] newStack = new Integer[stack.length * 2];
+            int newSize = stack.length * 2;
+            Integer[] newStack = new Integer[newSize];
 
             for (int index = 0 ; index < stack.length ; index++) {
                 newStack[index] = stack[index];
             }
             stack = newStack;
+            stackSize = newSize;
         }
 
         stack[top++] = number;
