@@ -14,7 +14,7 @@ public class BreathFirstSearchMatrix {
                 {'#', '.', '#', '.', '.', '#', 'e'},
         };
 
-        int sr = 0, sc = 0; // start row , column
+        final int sr = 0, sc = 0; // start row , column. Never changed.
 
         int moveCount = 0;
         int nodesLeftInLayer = 1; // start with 1 because of start coordinate
@@ -23,8 +23,7 @@ public class BreathFirstSearchMatrix {
 
         boolean reachedEnd = false;
 
-        int numRow = 5;
-        int numColumn = 7;
+        final int numRow = 5, numColumn = 7;
         boolean[][] visited = new boolean[numRow][numColumn];
 
         /*
